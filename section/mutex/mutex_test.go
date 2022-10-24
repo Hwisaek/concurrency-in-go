@@ -1,0 +1,21 @@
+package main
+
+import (
+	"testing"
+)
+
+func Test_updateMessage(t *testing.T) {
+	msg = "Hello, world!"
+
+	wg.Add(2)
+	go updateMessage("x")
+	go updateMessage("Goodbye, cruel world!")
+	wg.Wait()
+
+	if msg != "Goodbye, cruel word!" {
+		t.Error("incorrect value in msg")
+	}
+}
+
+func Test_main(t *testing.T) {
+}

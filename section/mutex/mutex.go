@@ -34,7 +34,7 @@ func main() {
 	for i, income := range incomes {
 		go func(i int, income Income) {
 			defer wg.Done()
-			for week := 0; week < 52; week++ {
+			for week := 1; week <= 52; week++ {
 				balance.Lock()
 				temp := bankBalance
 				temp += income.Amount

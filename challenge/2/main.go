@@ -34,6 +34,8 @@ func main() {
 	fmt.Println("---------------------------")
 	fmt.Println("The table is empty.")
 
+	time.Sleep(sleepTime)
+
 	// start the meal
 	dine()
 

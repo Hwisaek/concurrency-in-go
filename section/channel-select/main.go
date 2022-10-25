@@ -39,6 +39,9 @@ func main() {
 			fmt.Println("Case three:", s3)
 		case s4 := <-channel2:
 			fmt.Println("Case four:", s4)
+		default:
+			fmt.Println("default")
+			// avoiding deadlock
 		}
 	}
 }

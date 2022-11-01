@@ -7,8 +7,8 @@ import (
 	"time"
 
 	_ "github.com/jackc/pgconn"
-	_ "github.com/jackc/pgx/stdlib"
 	_ "github.com/jackc/pgx/v4"
+	_ "github.com/jackc/pgx/v4/stdlib"
 )
 
 const webPort = "80"
@@ -29,7 +29,6 @@ func main() {
 	// set up mail
 
 	// listen for web connections
-
 }
 
 func initDB() *sql.DB {
@@ -50,16 +49,17 @@ func connectToDB() *sql.DB {
 		if err != nil {
 			log.Println("postgres not yet ready...")
 		} else {
-			log.Println("connected to database!")
+			log.Print("connected to database!")
 			return connection
 		}
+
 		if counts > 10 {
 			return nil
 		}
-		log.Println("Backing off for 1 second")
+
+		log.Print("Backing off for 1 second")
 		time.Sleep(1 * time.Second)
 		counts++
-
 		continue
 	}
 }

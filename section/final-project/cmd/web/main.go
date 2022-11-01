@@ -7,6 +7,9 @@ import (
 	"os"
 	"time"
 
+	"github.com/alexedwards/scs/redisstore"
+	"github.com/alexedwards/scs/v2"
+	"github.com/gomodule/redigo/redis"
 	_ "github.com/jackc/pgconn"
 	_ "github.com/jackc/pgx/v4"
 	_ "github.com/jackc/pgx/v4/stdlib"
@@ -62,6 +65,7 @@ func connectToDB() *sql.DB {
 		log.Print("Backing off for 1 second")
 		time.Sleep(1 * time.Second)
 		counts++
+
 		continue
 	}
 }
